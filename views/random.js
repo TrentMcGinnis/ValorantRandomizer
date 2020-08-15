@@ -7,7 +7,7 @@ async function reroll(id) {
             data = await response.json();
             document.getElementById('map_image').src = data.image;
             document.getElementById('map_id').innerText = data.id;
-            document.getElementById('map_side').innerText = "Start the game on side " + data.side;
+            document.getElementById('map_site').innerText = "Start the game on side " + data.site;
             break;
         case "agent":
             response = await fetch("/random_agent");

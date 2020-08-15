@@ -18,8 +18,8 @@ app.get("/random_agent", (req, res, next) => {
 app.get("/random_map", (req, res, next) => {
     const map_data = require("./public/config/maps.json");
     const random_map = map_data.maps[Math.round(Math.random() * (map_data.maps.length - 1))];
-    const random_side = random_map.sides[Math.round(Math.random() * (random_map.sides.length - 1))];
-    const random_map_data = {image: random_map.image, id: random_map.id, side: random_side}
+    const random_site = random_map.sites[Math.round(Math.random() * (random_map.sites.length - 1))];
+    const random_map_data = {image: random_map.image, id: random_map.id, site: random_site};
     res.send(random_map_data);
 });
 
@@ -39,8 +39,8 @@ app.get("/randomgame", (req, res, next) => {
     const first_round_weapons = weapon_data.weapons.filter(weapon => weapon.cost <= 800)
 
     const random_map = map_data.maps[Math.round(Math.random() * (map_data.maps.length - 1))];
-    const random_side = random_map.sides[Math.round(Math.random() * (random_map.sides.length - 1))];
-    const random_map_data = {image: random_map.image, id: random_map.id, side: random_side}
+    const random_site = random_map.sites[Math.round(Math.random() * (random_map.sites.length - 1))];
+    const random_map_data = {image: random_map.image, id: random_map.id, site: random_site}
     const random_agent = agent_data.agents[Math.round(Math.random() * (agent_data.agents.length - 1))];
     const random_weapon = first_round_weapons[Math.round(Math.random() * (first_round_weapons.length - 1))];
     res.render('random', {map: random_map_data, agent: random_agent, weapon: random_weapon});
